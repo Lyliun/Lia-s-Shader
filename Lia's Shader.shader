@@ -74,6 +74,9 @@ Shader "LiaShader/Cyberpunk Crossair"
         // Energy Sparks
         _SparkDensity ("Spark Density", Range(1,200)) = 50
         _SparkIntensity ("Spark Intensity", Range(0,3)) = 1.5
+
+        // Enable RGB
+        [Toggle] _EnableRGB ("Enable RGB", Float) = 0
     }
 
     CustomEditor "OlhoCrosshairUltra_Fancy_GUI"
@@ -128,6 +131,8 @@ Shader "LiaShader/Cyberpunk Crossair"
 
             float _LensStrenght, _LensFrequency;
             float _SparkDensity, _SparkIntensity;
+
+            float _EnableRGB;
 
             #ifndef UNITY_PI
             #define UNITY_PI 3.14159265359
@@ -189,7 +194,32 @@ Shader "LiaShader/Cyberpunk Crossair"
 
                 // === Background ===
                 float radial = saturate(r * 2.0);
-                float3 bg = lerp(_BackgroundColor1.rgb, _BackgroundColor2.rgb, radial);
+
+                // Pega a cor de fundo 1 e aplica o efeito RGB se o toggle estiver ativo
+                float3 finalBgColor1 = _BackgroundColor1.rgb;
+
+                if (_EnableRGB > 0.5)
+                {
+                    float hue = frac (_HueOffset + t * _HueSpeed);
+                    finalBgColor1 = HueShift(finalBgColor1, hue);
+                }
+
+                // Cria o gradiente do fundo com cor (agora possivelmente alterada)
+                float3 bg = lerp(finalBgColor1, _BackgroundColor1.rgb, radial);
+
+                // Enable RGB effect
+                if (_EnableRGB > 0.5)
+                {
+                    float3 rgb;
+                    rgb.r = tex2D(_MainTex, uv + float2(_ChromaticOffset,0)).r;
+                    rgb.g = tex2D(_MainTex, uv).g;
+                    rgb.b = tex2D(_MainTex, uv - float2(_ChromaticOffset,0)).b;
+                    bg *= rgb;
+                }
+                else
+                {
+                    bg *= tex2D(_MainTex, uv).rgb;
+                }
 
                 // === Breath-in estático ===
                 float breath = 1.0 + sin(t * _BreathSpeed) * _BreathStrength;

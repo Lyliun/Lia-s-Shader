@@ -33,9 +33,16 @@ public class OlhoCrosshairUltra_Fancy_GUI : ShaderGUI
         DrawSeparator();
 
         // 🌈 COLORS & GLOW
-        showColors = EditorGUILayout.Foldout(showColors, "🌈 Cores e Glow", true);
+        showColors = EditorGUILayout.Foldout(showColors, "🌈 Cores & Glow", true);
         if (showColors)
         {
+            DrawProperties(materialEditor, props, "_EnableRGB"); // Toggle para RGB
+
+            if (FindProperty("_EnableRGB", props).floatValue < 0.5f)
+            {
+                DrawProperties(materialEditor, props, "_HueOffset", "_HueSpeed");
+            }
+
             DrawProperties(materialEditor, props, "_ShapeColor1", "_ShapeColor2");
             DrawProperties(materialEditor, props, "_GlowColor", "_Emission", "_MasterEmission");
             DrawProperties(materialEditor, props, "_BackgroundColor1", "_BackgroundColor2");
