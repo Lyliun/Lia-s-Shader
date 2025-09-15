@@ -1,0 +1,175 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!21 &2100000
+Material:
+  serializedVersion: 8
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: Material test
+  m_Shader: {fileID: 4800000, guid: 0b341f35814766744828e04d37e9b194, type: 3}
+  m_Parent: {fileID: 0}
+  m_ModifiedSerializedProperties: 0
+  m_ValidKeywords: []
+  m_InvalidKeywords:
+  - _ENABLEBREATH_ON
+  - _ENABLECIRCLES_ON
+  - _ENABLEENERGYWAVE_ON
+  - _ENABLEGLITCH_ON
+  - _ENABLERIPPLE_ON
+  - _ENABLEROTATION_ON
+  m_LightmapFlags: 4
+  m_EnableInstancingVariants: 0
+  m_DoubleSidedGI: 0
+  m_CustomRenderQueue: -1
+  stringTagMap: {}
+  disabledShaderPasses: []
+  m_LockedProperties: 
+  m_SavedProperties:
+    serializedVersion: 3
+    m_TexEnvs:
+    - _BumpMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailAlbedoMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailMask:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _DetailNormalMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _EmissionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MainTex:
+        m_Texture: {fileID: 2800000, guid: e63aba3e54593eb43b72c4544fd9953c, type: 3}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _MetallicGlossMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _OcclusionMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    - _ParallaxMap:
+        m_Texture: {fileID: 0}
+        m_Scale: {x: 1, y: 1}
+        m_Offset: {x: 0, y: 0}
+    m_Ints: []
+    m_Floats:
+    - _Angle: 0
+    - _ArmFeather: 0.2
+    - _ArmLength: 0.556
+    - _BaseSize: 0.2
+    - _BlinkAmount: 0
+    - _BreathSpeed: 3.85
+    - _BreathStrength: 0.417
+    - _BumpScale: 1
+    - _CenterDotSize: 0.03
+    - _CentralDotSize: 0.015
+    - _ChromaticOffset: 0.00204
+    - _Circle1Brightness: 1.26
+    - _Circle1Size: 0.151
+    - _Circle2Brightness: 1.22
+    - _Circle2Size: 0.174
+    - _CircleInnerSize: 0.15
+    - _CircleOuterSize: 0.4
+    - _CircleRadius: 0.25
+    - _CircleThickness: 0.01
+    - _Cutoff: 0.5
+    - _DetailNormalMapScale: 1
+    - _DotIntensity: 2
+    - _DotSize: 0.03
+    - _DstBlend: 0
+    - _Emission: 9.44
+    - _EnableBreath: 1
+    - _EnableCircles: 1
+    - _EnableEnergyWave: 1
+    - _EnableGlitch: 1
+    - _EnableRipple: 1
+    - _EnableRotation: 1
+    - _EnableScan: 0
+    - _EnergyWaveSpeed: 0.41
+    - _EnergyWaveStrength: 0.08
+    - _FlickerSpeed: 1.9
+    - _FlickerStrength: 1
+    - _Flip: 0
+    - _FlipCircles: 0
+    - _GlitchSpeed: 1.6
+    - _GlitchStrength: 0.2
+    - _GlossMapScale: 1
+    - _Glossiness: 0.5
+    - _GlossyReflections: 1
+    - _GlowStrength: 3
+    - _Height: 0
+    - _HueOffset: 0.049
+    - _HueSpeed: 0.09
+    - _LensFrequency: 6
+    - _LensStrenght: 0.05
+    - _LineThickness: 0.02
+    - _MarkLength: 0.1
+    - _MasterEmission: 1.15
+    - _Metallic: 0
+    - _Mode: 0
+    - _OcclusionStrength: 1
+    - _Parallax: 0.75
+    - _PulseSpeed: 1.08
+    - _PulseStrength: 0.7
+    - _RingRotationSpeed: 1
+    - _RippleFreq: 8
+    - _RippleSpeed: 0.89
+    - _RippleStrength: 0.1
+    - _RotSpeed: 2
+    - _RotateSpeed: 0
+    - _RotationSpeed: 0.49
+    - _ScanSpeed: 0.7
+    - _ScanWidth: 0.01
+    - _SectionDiamond: 0
+    - _SectionMain: 0
+    - _SectionPulse: 0
+    - _SectionPupil: 0
+    - _SectionVignette: 0
+    - _Size: 0.05
+    - _SmoothnessTextureChannel: 0
+    - _Softness: 0.019
+    - _SparkDensity: 50
+    - _SparkIntensity: 1.5
+    - _SpecularHighlights: 1
+    - _SrcBlend: 1
+    - _Thickness: 0.001
+    - _UVSec: 0
+    - _VignetteFalloff: 0.235
+    - _VignetteThickness: 0.384
+    - _WarpSpeed: 0.7
+    - _WarpStrength: 0.008
+    - _XAngle: 141
+    - _XWidth: 0.025
+    - _ZWrite: 1
+    - _ZoomAmount: 0.1
+    - _ZoomAmp: 0.1
+    - _ZoomSpeed: 2
+    - _ZoomStrength: 0.022
+    m_Colors:
+    - _BackgroundColor1: {r: 21.626368, g: 0.22645454, b: 6.955214, a: 1}
+    - _BackgroundColor2: {r: 5.992157, g: 2.5702813, b: 0, a: 1}
+    - _CircleColor: {r: 9.849154, g: 1.8855501, b: 0, a: 1}
+    - _Color: {r: 0.8396226, g: 0.09109115, b: 0.09109115, a: 1}
+    - _CrosshairColor: {r: 0, g: 1, b: 1, a: 1}
+    - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
+    - _GlowColor: {r: 1.4741087, g: 0, b: 0.32248306, a: 1}
+    - _ScanColor: {r: 0.74902624, g: 0.05927374, b: 1.3962263, a: 1}
+    - _ShapeColor: {r: 3.0704954, g: 1.1548169, b: 0.39105368, a: 1}
+    - _ShapeColor1: {r: 0.990566, g: 0, b: 0, a: 1}
+    - _ShapeColor2: {r: 0.04887673, g: 0, b: 0.7921569, a: 1}
+    - _XColor: {r: 1, g: 0, b: 0, a: 1}
+  m_BuildTextureStacks: []
