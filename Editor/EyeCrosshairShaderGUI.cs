@@ -20,7 +20,7 @@ public class OlhoCrosshairUltra_Fancy_GUI : ShaderGUI
         }
 
         EditorGUILayout.Space();
-        EditorGUILayout.LabelField("⚡ OlhoCrosshairUltra_Fancy Shader", headerStyle);
+        EditorGUILayout.LabelField("⚡ Crossair Cyberpunk Shader", headerStyle);
         EditorGUILayout.Space();
 
         // 🎯 CROSSHAIR
@@ -75,7 +75,7 @@ public class OlhoCrosshairUltra_Fancy_GUI : ShaderGUI
         // ✨ Rodapé com sombra gradiente translúcida
         EditorGUILayout.Space();
         Rect creditRect = GUILayoutUtility.GetRect(
-            new GUIContent("✦ OlhoCrosshair Cyberpunk — by LiA & Utohpiah ✦"),
+            new GUIContent("✦ Crosshair Cyberpunk Shader — by LiA ✦"),
             EditorStyles.centeredGreyMiniLabel
         );
 

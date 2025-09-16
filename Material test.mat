@@ -19,6 +19,7 @@ Material:
   - _ENABLEGLITCH_ON
   - _ENABLERIPPLE_ON
   - _ENABLEROTATION_ON
+  - _ENABLESCAN_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -96,9 +97,10 @@ Material:
     - _EnableCircles: 1
     - _EnableEnergyWave: 1
     - _EnableGlitch: 1
+    - _EnableRGB: 0
     - _EnableRipple: 1
     - _EnableRotation: 1
-    - _EnableScan: 0
+    - _EnableScan: 1
     - _EnergyWaveSpeed: 0.41
     - _EnergyWaveStrength: 0.08
     - _FlickerSpeed: 1.9
@@ -133,7 +135,7 @@ Material:
     - _RotateSpeed: 0
     - _RotationSpeed: 0.49
     - _ScanSpeed: 0.7
-    - _ScanWidth: 0.01
+    - _ScanWidth: 0.05
     - _SectionDiamond: 0
     - _SectionMain: 0
     - _SectionPulse: 0
@@ -160,14 +162,14 @@ Material:
     - _ZoomSpeed: 2
     - _ZoomStrength: 0.022
     m_Colors:
-    - _BackgroundColor1: {r: 22.880413, g: 0, b: 21.697199, a: 1}
+    - _BackgroundColor1: {r: 22.880413, g: 0, b: 13.448824, a: 1}
     - _BackgroundColor2: {r: 5.992157, g: 2.5702813, b: 0, a: 1}
     - _CircleColor: {r: 9.849154, g: 1.8855501, b: 0, a: 1}
     - _Color: {r: 0.8396226, g: 0.09109115, b: 0.09109115, a: 1}
     - _CrosshairColor: {r: 0, g: 1, b: 1, a: 1}
     - _EmissionColor: {r: 0, g: 0, b: 0, a: 1}
     - _GlowColor: {r: 1.4741087, g: 0, b: 0.32248306, a: 1}
-    - _ScanColor: {r: 0.74902624, g: 0.05927374, b: 1.3962263, a: 1}
+    - _ScanColor: {r: 0.49626657, g: 0.03921569, b: 0.85882354, a: 1}
     - _ShapeColor: {r: 3.0704954, g: 1.1548169, b: 0.39105368, a: 1}
     - _ShapeColor1: {r: 0.990566, g: 0, b: 0, a: 1}
     - _ShapeColor2: {r: 0.04887673, g: 0, b: 0.7921569, a: 1}

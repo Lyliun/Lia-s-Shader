@@ -279,12 +279,32 @@ Shader "LiaShader/Cyberpunk Crossair"
                 chroma.b = tex2D(_MainTex, uv - float2(_ChromaticOffset,0)).b;
 
                 // === Scanline ===
-                float3 scanCol = 0;
+                float3 scanCol = 0; // Declare scanCol aqui para que seja acessível fora do 'if'
+
                 if (_EnableScan > 0.5)
                 {
-                    float t2 = frac(t * _ScanSpeed + uv.y);
-                    float scanMask = smoothstep(0.0, _ScanWidth, abs(t2 - 0.5));
-                    scanCol = (1.0 - scanMask) * _ScanColor.rgb;
+                    // A scanline se move mais lentamente, então a gente pode usar uma velocidade menor
+                    float scanlineSpeed = _ScanSpeed * 0.5;
+
+                    // Ondulação: Adiciona uma leve distorção de seno
+                    float y_offset = sin(uv.x * 30.0 + _Time.y * scanlineSpeed) * 0.01;
+
+                    // Sincronização com o Glitch: Pega a mesma máscara do efeito de glitch existente
+                    float glitchMask = step(0.98, frac(sin(t * _GlitchSpeed) * 43758.5453));
+
+                    // Deslocamento Sincronizado: A scanline "pula" apenas quando o glitch acontece
+                    float displace_y = glitchMask * (frac(sin(t * _GlitchSpeed + 1.234) * 54321.123) - 0.5) * 0.1;
+
+                    // Calcula a posição da scanline com todos os efeitos
+                    float t2 = frac(t * scanlineSpeed + uv.y + y_offset + displace_y);
+
+                    // Afterglow / Brilho: Usa uma função de potência para criar um brilho mais suave no centro
+                    float scanMask = pow(abs(t2 - 0.5), 0.5);
+
+                    // Aplica o efeito de scanline
+                    float scanline_effect = 1.0 - smoothstep(_ScanWidth, _ScanWidth + 0.02, scanMask);
+
+                    scanCol = scanline_effect * _ScanColor.rgb;
                 }
 
                 // === Final composition ===
