@@ -17,9 +17,9 @@ Material:
   - _ENABLECIRCLES_ON
   - _ENABLEENERGYWAVE_ON
   - _ENABLEGLITCH_ON
+  - _ENABLERGB_ON
   - _ENABLERIPPLE_ON
   - _ENABLEROTATION_ON
-  - _ENABLESCAN_ON
   m_LightmapFlags: 4
   m_EnableInstancingVariants: 0
   m_DoubleSidedGI: 0
@@ -97,10 +97,10 @@ Material:
     - _EnableCircles: 1
     - _EnableEnergyWave: 1
     - _EnableGlitch: 1
-    - _EnableRGB: 0
+    - _EnableRGB: 1
     - _EnableRipple: 1
     - _EnableRotation: 1
-    - _EnableScan: 1
+    - _EnableScan: 0
     - _EnergyWaveSpeed: 0.41
     - _EnergyWaveStrength: 0.08
     - _FlickerSpeed: 1.9
