@@ -242,10 +242,12 @@ Shader "LiaShader/Cyberpunk Crossair"
                 half3 crossGlow = gradColor * crosshair * (_Emission + pulse) * _MasterEmission;
 
                 // === Circles + RingRotation + EnergyWave ===
-                half c1 = (r - _Circle1Size) * 18.0;
-                half c2 = (r - _Circle2Size) * 25.0;
-                half circle = exp(-(c1*c1)) * _Circle1Brightness;
-                circle += exp(-(c2*c2)) * _Circle2Brightness;
+                half1 c1 = (r - _Circle1Size) * 18.00;
+                half c2 = (r - _Circle2Size) * 25.00;
+
+                // Otimização: trca do exp() por pow() para otimizar o cálculo
+                half circle = pow(saturate(1.0 - abs(c1)), 4.0 * _Circle1Brightness);
+                circle += pow(saturate(1.0 - abs(c2)), 4.0 * _Circle2Brightness);
 
                 half angle = atan2(toCenter.y, toCenter.x);
                 half ringRot = sin(angle * 6.0 + t * _RingRotationSpeed) * 0.5 + 0.5;
