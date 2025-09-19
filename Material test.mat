@@ -126,10 +126,10 @@ Material:
     - _OcclusionStrength: 1
     - _Parallax: 0.75
     - _PulseSpeed: 1.08
-    - _PulseStrength: 0.7
+    - _PulseStrength: 2
     - _RingRotationSpeed: 1
     - _RippleFreq: 8
-    - _RippleSpeed: 0.89
+    - _RippleSpeed: 1.75
     - _RippleStrength: 0.1
     - _RotSpeed: 2
     - _RotateSpeed: 0

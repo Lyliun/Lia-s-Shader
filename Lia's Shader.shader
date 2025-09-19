@@ -164,6 +164,13 @@ Shader "LiaShader/Cyberpunk Crossair"
                 return half2(c*p.x - s*p.y, s*p.x + c*p.y);
             }
 
+            // Função de hash para pseudo-aleatoriedade
+            float hash12(float2 p) {
+                p = frac(p * float2(5.31, 8.21));
+                p += dot(p, p.yx);
+                return frac(p.x * p.y);
+            }
+
             // A função de HueShift pode usar half3
             half3 HueShift(half3 c, half h01) {
                 half a = h01 * UNITY_PI * 2.0;
@@ -189,7 +196,7 @@ Shader "LiaShader/Cyberpunk Crossair"
                 uv += dir0 * lens;
 
                 // === Glitch UV ===
-                half glitch = frac(sin(dot(uv * t, half2(12.9898,78.233))) * 43758.5453);
+                half glitch = hash12(uv * t);
                 half glitchMask = step(0.98, frac(sin(t * _GlitchSpeed) * 43758.5453));
                 uv.x += (glitchMask > 0 ? (glitch - 0.5) * _GlitchStrength : 0);
 
@@ -259,7 +266,7 @@ Shader "LiaShader/Cyberpunk Crossair"
                 half3 circleGlow = circle * gradColor * 1.2;
 
                 // === Energy Sparks ===
-                half sparkNoise = frac(sin(dot(uv * _SparkDensity, half2(12.9898,78.233))) * 43758.5453);
+                half sparkNoise = hash12(uv * _SparkDensity);
                 half spark = step(0.995, sparkNoise) * _SparkIntensity;
                 circleGlow += spark * gradColor;
 
@@ -302,7 +309,7 @@ Shader "LiaShader/Cyberpunk Crossair"
                 half3 col = chroma * bg + crossGlow + circleGlow + scanCol;
 
                 // === Vignette ===
-                half vdist = length(uv - half2(0.5,0.5)) * 2.0;
+                half vdist = length(uv - half2(0.5, 0.5)) * 2.0;
                 half vmask = smoothstep(_VignetteThickness, _VignetteThickness + max(_VignetteFalloff, 1e-4), vdist);
                 col *= (1.0 - vmask);
 
