@@ -1,46 +1,46 @@
 ### Cyberpunk Eye Crosshair Shader
 
-Um shader customizado para Unity que cria um efeito de mira futurista dentro de um olho cibernético. Este projeto se concentra em performance e estética, utilizando otimizações para rodar de forma eficiente em diferentes plataformas, enquanto entrega um visual detalhado e imersivo.
+A custom shader for Unity that creates a futuristic crosshair effect inside a bionic eye. This project focuses on both performance and aesthetics, utilizing optimizations to run efficiently on various platforms while delivering a detailed and immersive visual experience.
 
 ---
 
-### ✨ Principais Características
+### ✨ Key Features
 
--   **Mira Dinâmica:** Mira central com gradiente de cor e efeito de pulso, que simula um sistema vivo.
--   **Animação de Respiração:** Um efeito de "breath-in" que expande e contrai a mira, dando uma sensação orgânica e de tensão.
--   **Glitch e Distorção:** Efeitos de falha e distorção sincronizados com o tempo para simular uma interface com defeito.
--   **Círculos e Anéis Rotativos:** Círculos e anéis que se movem, giram e emitem ondas de energia a partir do centro.
--   **Ruído e Faíscas:** Adição de ruído de sinal sutil e partículas de energia que se dispersam, reforçando a estética holográfica.
--   **Afterimage (Rastro Fantasma):** Um rastro sutil que simula uma projeção holográfica instável.
--   **Máscara de Íris:** O shader aplica os efeitos somente na área da íris, revelando a textura original da esclera (a parte branca do olho).
--   **Editor Personalizado:** Um GUI customizado que permite controlar todos os parâmetros do shader diretamente no Inspector da Unity.
-
----
-
-### 🚀 Otimizações de Performance
-
-O código foi cuidadosamente refatorado para garantir o máximo de desempenho, utilizando técnicas como:
--   **Tipos de Dados `half`:** Uso de precisão reduzida (`half`) para otimizar cálculos, ideal para GPUs de dispositivos móveis.
--   **Função Hash Otimizada:** Implementação de uma função hash pseudo-aleatória (`hash12`) leve e eficiente.
--   **Código Enxuto:** Remoção de variáveis e blocos de código não utilizados para um shader mais limpo e leve.
+-   **Dynamic Crosshair:** A central crosshair with a color gradient and pulse effect that simulates a living system.
+-   **Breathing Animation:** A "breath-in" effect that expands and contracts the crosshair, adding a sense of organic tension.
+-   **Glitch & Distortion:** Time-synchronized visual glitches and distortion effects that simulate a malfunctioning interface.
+-   **Circles and Rotating Rings:** Animated circles and rings that move, rotate, and emit energy waves from the center.
+-   **Noise and Sparks:** The addition of subtle signal noise and energy particles that scatter, reinforcing the holographic aesthetic.
+-   **Afterimage (Holographic Trail):** A subtle trail effect that simulates an unstable holographic projection.
+-   **Iris Mask:** The shader applies effects only to the iris area, revealing the sclera (the white part of the eye) from the original texture.
+-   **Custom Editor:** A custom GUI that allows you to control all shader parameters directly within the Unity Inspector.
 
 ---
 
-### 🖼️ Pré-visualização
+### 🚀 Performance Optimizations
 
-**(Adicione aqui uma captura de tela, GIF ou vídeo do shader em ação)**
-
----
-
-### Como Usar
-
-1.  Crie um novo **Material** na Unity.
-2.  Defina o Shader do Material para `LiaShader/Cyberpunk Crossair`.
-3.  Ajuste os parâmetros diretamente no Inspector usando o editor customizado.
+The code has been carefully refactored to ensure maximum performance, using techniques such as:
+-   **`half` Data Types:** Use of reduced precision (`half`) to optimize calculations, ideal for mobile and low-end GPUs.
+-   **Optimized Hash Function:** Implementation of a lightweight and efficient pseudo-random hash function (`hash12`).
+-   **Clean Code:** Removal of unused variables and code blocks for a cleaner and more efficient shader.
 
 ---
 
-### Créditos
+### 🖼️ Preview
+
+**(Add a screenshot, GIF, or video of the shader in action here)**
+
+---
+
+### How to Use
+
+1.  Create a new **Material** in Unity.
+2.  Set the Material's Shader to `LiaShader/Cyberpunk Crossair`.
+3.  Adjust the parameters directly in the Inspector using the custom editor.
+
+---
+
+### Credits
 
 -   **Shader Design & Code:** LiA
--   **Refatoração & Otimização:** Lia
+-   **Refactoring & Optimization:** LiA
