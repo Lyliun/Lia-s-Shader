@@ -69,6 +69,17 @@ public class OlhoCrosshairUltra_Fancy_GUI : ShaderGUI
             DrawProperties(materialEditor, props, "_SparkDensity", "_SparkIntensity");
             DrawProperties(materialEditor, props, "_ChromaticOffset");
             DrawProperties(materialEditor, props, "_EnableScan", "_ScanSpeed", "_ScanWidth", "_ScanColor");
+            
+            // --- Novos efeitos ---
+            // Afterimage
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Afterimage", EditorStyles.boldLabel);
+            DrawProperties(materialEditor, props, "_AfterimageStrength", "_AfterimageDensity");
+
+            // Máscara da Íris
+            EditorGUILayout.Space();
+            EditorGUILayout.LabelField("Iris Mask", EditorStyles.boldLabel);
+            DrawProperties(materialEditor, props, "_IrisSize", "_IrisSoftness");
         }
         DrawSeparator();
 
@@ -79,12 +90,10 @@ public class OlhoCrosshairUltra_Fancy_GUI : ShaderGUI
             EditorStyles.centeredGreyMiniLabel
         );
 
-        // Texto branco com brilho animado
         GUIStyle creditStyle = new GUIStyle(EditorStyles.centeredGreyMiniLabel);
         creditStyle.normal.textColor = Color.white;
         creditStyle.fontStyle = FontStyle.Italic;
 
-        // 🔥 Animação pulsante no alpha
         float pulse = (Mathf.Sin((float)EditorApplication.timeSinceStartup * 2f) * 0.5f + 0.5f) * 0.5f + 0.5f;
         Color animated = new Color(1f, 1f, 1f, pulse);
         creditStyle.normal.textColor = animated;

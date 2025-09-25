@@ -85,6 +85,10 @@ Shader "LiaShader/Cyberpunk Crossair"
         // Afterimage
         _AfterimageStrength ("Afterimage Strength", Range(0,3)) = 1.2
         _AfterimageDensity ("Afterimage Density", Range(1,20)) = 5
+
+        [Header(Mask)]
+        _IrisSize ("Iris Size", Range(0.1, 1.0)) = 0.5
+        _IrisSoftness ("Iris Softness", Range(0.01, 0.5)) = 0.1
     }        
     
         CustomEditor "OlhoCrosshairUltra_Fancy_GUI"
@@ -148,6 +152,8 @@ Shader "LiaShader/Cyberpunk Crossair"
             float _SparkDensity, _SparkIntensity;
 
             float _AfterimageStrength, _AfterimageDensity;
+
+            float _IrisSize, _IrisSoftness;
 
             float _EnableRGB;
 
@@ -319,6 +325,12 @@ Shader "LiaShader/Cyberpunk Crossair"
 
                 // === Final composition ===
                 half3 col = chroma * bg + crossGlow + circleGlow + scanCol;
+
+                // Calcula a máscara da íris
+                half irisMask = smoothstep(_IrisSize, _IrisSize + _IrisSoftness, r);
+
+                // Usa a máscara para misturar a cor da mira com a textura original
+                col = lerp(col, tex2D(_MainTex, uv).rgb, irisMask);
 
                 // === Vignette ===
                 half vdist = length(uv - half2(0.5, 0.5)) * 2.0;

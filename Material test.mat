@@ -68,8 +68,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
-    - _AfterimageDensity: 5
-    - _AfterimageStrength: 1.2
+    - _AfterimageDensity: 9.2
+    - _AfterimageStrength: 1.87
     - _Angle: 0
     - _ArmFeather: 0.2
     - _ArmLength: 0.556
@@ -118,6 +118,8 @@ Material:
     - _Height: 0
     - _HueOffset: 0.049
     - _HueSpeed: 0.09
+    - _IrisSize: 0.5
+    - _IrisSoftness: 0.1
     - _LensFrequency: 6
     - _LensStrenght: 0.05
     - _LineThickness: 0.02
