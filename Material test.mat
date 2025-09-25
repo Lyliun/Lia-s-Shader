@@ -68,6 +68,8 @@ Material:
         m_Offset: {x: 0, y: 0}
     m_Ints: []
     m_Floats:
+    - _AfterimageDensity: 5
+    - _AfterimageStrength: 1.2
     - _Angle: 0
     - _ArmFeather: 0.2
     - _ArmLength: 0.556
@@ -107,7 +109,7 @@ Material:
     - _FlickerStrength: 1
     - _Flip: 0
     - _FlipCircles: 0
-    - _GlitchSpeed: 1.6
+    - _GlitchSpeed: 1.1
     - _GlitchStrength: 0.2
     - _GlossMapScale: 1
     - _Glossiness: 0.5
@@ -144,8 +146,8 @@ Material:
     - _Size: 0.05
     - _SmoothnessTextureChannel: 0
     - _Softness: 0.019
-    - _SparkDensity: 50
-    - _SparkIntensity: 1.5
+    - _SparkDensity: 115
+    - _SparkIntensity: 3
     - _SpecularHighlights: 1
     - _SrcBlend: 1
     - _Thickness: 0.001

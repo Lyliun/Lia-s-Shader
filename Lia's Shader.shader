@@ -81,9 +81,13 @@ Shader "LiaShader/Cyberpunk Crossair"
 
         // Enable RGB
         [Toggle] _EnableRGB ("Enable RGB", Float) = 0
-    }
 
-    CustomEditor "OlhoCrosshairUltra_Fancy_GUI"
+        // Afterimage
+        _AfterimageStrength ("Afterimage Strength", Range(0,3)) = 1.2
+        _AfterimageDensity ("Afterimage Density", Range(1,20)) = 5
+    }        
+    
+        CustomEditor "OlhoCrosshairUltra_Fancy_GUI"
 
     SubShader
     {
@@ -107,6 +111,7 @@ Shader "LiaShader/Cyberpunk Crossair"
 
             float _Size, _Thickness;
             float _ArmLength, _ArmFeather;
+            
             // Variáveis otimizadas para half
             half4 _ShapeColor1, _ShapeColor2;
 
@@ -114,6 +119,7 @@ Shader "LiaShader/Cyberpunk Crossair"
             float _RotationSpeed;
 
             float _Softness;
+           
             // Variáveis otimizadas para half
             half4 _GlowColor;
             float _Emission, _MasterEmission;
@@ -124,6 +130,7 @@ Shader "LiaShader/Cyberpunk Crossair"
             float _PulseSpeed, _PulseStrength;
 
             float _EnableScan, _ScanSpeed, _ScanWidth;
+            
             // Variáveis otimizadas para half
             half4 _ScanColor;
 
@@ -139,6 +146,8 @@ Shader "LiaShader/Cyberpunk Crossair"
 
             float _LensStrenght, _LensFrequency;
             float _SparkDensity, _SparkIntensity;
+
+            float _AfterimageStrength, _AfterimageDensity;
 
             float _EnableRGB;
 
@@ -165,7 +174,7 @@ Shader "LiaShader/Cyberpunk Crossair"
             }
 
             // Função de hash para pseudo-aleatoriedade
-            float hash12(float2 p) {
+            half hash12(float2 p) {
                 p = frac(p * float2(5.31, 8.21));
                 p += dot(p, p.yx);
                 return frac(p.x * p.y);
@@ -198,7 +207,7 @@ Shader "LiaShader/Cyberpunk Crossair"
                 // === Glitch UV ===
                 half glitch = hash12(uv * t);
                 half glitchMask = step(0.98, frac(sin(t * _GlitchSpeed) * 43758.5453));
-                uv.x += (glitchMask > 0 ? (glitch - 0.5) * _GlitchStrength : 0);
+                uv.x += (glitchMask > 0 ? (glitch - 0.5) * _GlitchStrength : 0);  
 
                 // === Ripple distortion ===
                 toCenter = uv - center;
@@ -251,6 +260,9 @@ Shader "LiaShader/Cyberpunk Crossair"
                 // === Circles + RingRotation + EnergyWave ===
                 half1 c1 = (r - _Circle1Size) * 18.00;
                 half c2 = (r - _Circle2Size) * 25.00;
+                half afterimageNoise = hash12(uv * _AfterimageDensity);
+                half afterimage = step(0.98, afterimageNoise) * _AfterimageStrength;
+                crossGlow += afterimage * gradColor;
 
                 // Otimização: trca do exp() por pow() para otimizar o cálculo
                 half circle = pow(saturate(1.0 - abs(c1)), 4.0 * _Circle1Brightness);
