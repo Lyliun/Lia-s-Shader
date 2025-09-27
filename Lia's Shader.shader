@@ -256,12 +256,19 @@ Shader "LiaShader/Cyberpunk Crossair"
                 // === Gradiente + Hue ===
                 half gradFactor = saturate((dUV.y + 1.0) * 0.5);
                 half3 gradColor = lerp(_ShapeColor1.rgb, _ShapeColor2.rgb, gradFactor);
-                half hue = frac(_HueOffset + t * _HueSpeed);
-                gradColor = HueShift(gradColor, hue);
-
-                // === Glow ===
                 half pulse = (sin(t * _PulseSpeed) * 0.5 + 0.5) * _PulseStrength;
-                half3 crossGlow = gradColor * crosshair * (_Emission + pulse) * _MasterEmission;
+                half3 crossColor = gradColor * (_Emission + pulse) * _MasterEmission;
+
+                half3 crossGlow = crossColor * crosshair;
+
+                half3 finalShapeColor = lerp(_ShapeColor1.rgb, _ShapeColor2.rgb, gradFactor);
+                if (_EnableRGB > 0.5)
+                {
+                    half hue = frac(_HueOffset + t * _HueSpeed);
+                    finalShapeColor = HueShift(finalShapeColor, hue);
+                }
+
+                crossGlow = crossGlow * finalShapeColor;
 
                 // === Circles + RingRotation + EnergyWave ===
                 half1 c1 = (r - _Circle1Size) * 18.00;
